@@ -1,93 +1,136 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String email = '';
-  String password = '';
-
-  void _submit() {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
-      // Implement your login logic here (API call, auth state update, etc.)
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Logging in $email")),
-      );
-      // Navigate to dashboard or home screen on successful login
-      Navigator.pushReplacementNamed(context, '/dashboard');
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final themeColor = const Color(0xFFFFD166);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Form(
-          key: _formKey,
-          child: ListView(
-            children: [
-              const SizedBox(height: 80),
-              const Icon(
-                Icons.shopping_cart,
-                size: 80,
-                color: Colors.orange,
-              ),
-              const SizedBox(height: 32),
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder(),
+      backgroundColor: themeColor,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(32),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.yellow.withOpacity(0.18),
+                  blurRadius: 52,
+                  spreadRadius: 0,
+                  offset: const Offset(0, 0),
                 ),
-                keyboardType: TextInputType.emailAddress,
-                validator: (value) {
-                  if (value == null || value.isEmpty) return 'Email is required';
-                  final validEmail = RegExp(r'\S+@\S+\.\S+');
-                  if (!validEmail.hasMatch(value)) return 'Enter a valid email';
-                  return null;
-                },
-                onSaved: (value) => email = value ?? '',
-              ),
-              const SizedBox(height: 24),
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock),
-                  border: OutlineInputBorder(),
+              ],
+            ),
+            child: Column(
+              children: [
+                const SizedBox(height: 24),
+                Image.asset(
+                  "assets/icon/kisan_logo.png",
+                  height: 52,
                 ),
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) return 'Password is required';
-                  if (value.length < 6) return 'Minimum 6 characters required';
-                  return null;
-                },
-                onSaved: (value) => password = value ?? '',
-              ),
-              const SizedBox(height: 32),
-              ElevatedButton(
-                onPressed: _submit,
-                child: const Text('Login'),
-                style: ElevatedButton.styleFrom(padding: const EdgeInsets.all(16)),
-              ),
-              const SizedBox(height: 16),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/signup');
-                },
-                child: const Text(
-                  "Don't have an account? Sign Up",
-                  style: TextStyle(color: Colors.orange),
+                const SizedBox(height: 28),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "Sign In",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 28,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    SizedBox(width: 4),
+                    Icon(Icons.edit_note_rounded, color: Colors.amber, size: 24),
+                  ],
                 ),
-              ),
-            ],
+                const SizedBox(height: 28),
+                // Email input
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: "Email",
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                    fillColor: Colors.grey[200],
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(22),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 18),
+                // Password input
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: "Password",
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                    fillColor: Colors.grey[200],
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(22),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      elevation: 0,
+                    ),
+                    onPressed: () {
+                      // Add sign in logic
+                    },
+                    child: const Text(
+                      "Sign In",
+                      style: TextStyle(
+                        fontSize: 20,
+                        letterSpacing: 0.3,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 18),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Don't have an account? ",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        // Switch to sign up page
+                      },
+                      child: const Text(
+                        "Sign up",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+              ],
+            ),
           ),
         ),
       ),
