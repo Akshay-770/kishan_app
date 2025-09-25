@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: LoginScreen(),
+      home: signup_screen(),
     );
   }
 }
