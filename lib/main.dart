@@ -19,6 +19,9 @@ import 'screens/GroceryBook.dart';
 import 'screens/Historypage.dart';
 import 'screens/Mainscreen.dart';
 import 'screens/userscreen.dart';
+import 'screens/reset_password.dart';
+import 'screens/forgot_password.dart';
+import 'screens/logout_page.dart';
 
 
 
@@ -55,7 +58,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: signup_screen(),
+      home: LogoutPage(),
     );
   }
 }
