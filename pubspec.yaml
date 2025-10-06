@@ -116,6 +116,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  google_fonts: ^6.2.1
 
 
   flutter_lints: ^5.0.0
@@ -135,6 +136,7 @@ flutter:
     - assets/icon/kisan_logo.png
     - assets/icon/user.png
     - assets/icon/forgot-password.png
+    - assets/icon/OTP.png
 
 
 

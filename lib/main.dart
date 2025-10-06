@@ -22,6 +22,11 @@ import 'screens/userscreen.dart';
 import 'screens/reset_password.dart';
 import 'screens/forgot_password.dart';
 import 'screens/logout_page.dart';
+import 'screens/otp_screen.dart';
+import 'screens/profit_loss.dart';
+import 'screens/farmer_report.dart';
+import 'screens/grocery_report.dart';
+import 'screens/sign_in_screen.dart';
 
 
 
@@ -58,7 +63,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: LogoutPage(),
+      home: sign_in_screen(),
     );
   }
 }
