@@ -143,14 +143,14 @@
 // }
 import 'package:flutter/material.dart';
 
-class UserPage extends StatefulWidget {
-  const UserPage({super.key});
+class userscreen extends StatefulWidget {
+  const userscreen({super.key});
 
   @override
-  State<UserPage> createState() => _UserPageState();
+  State<userscreen> createState() => _UserPageState();
 }
 
-class _UserPageState extends State<UserPage> {
+class _UserPageState extends State<userscreen> {
   String userEmail = "user1234@gmail.com";
   String selectedType = "Grocery";
   final List<String> types = ["Grocery", "Farming"];

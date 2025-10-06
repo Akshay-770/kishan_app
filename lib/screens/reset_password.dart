@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ResetPasswordPage extends StatelessWidget {
-  const ResetPasswordPage({super.key});
+class reset_password extends StatelessWidget {
+  const reset_password({super.key});
 
   @override
   Widget build(BuildContext context) {

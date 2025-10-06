@@ -9,14 +9,14 @@ import 'screens/GroceryBook.dart';
 import 'screens/Historypage.dart';
 import 'screens/Mainscreen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class Mainscreen extends StatefulWidget {
+  const Mainscreen({super.key});
 
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<Mainscreen> {
   int _selectedIndex = 2;
 
   late final List<Widget> _pages;
@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
       const FarmerBook(),
       const GroceryBook(),
       const home_screen(),
-      const HistoryPage(),
+      const Historypage(),
 
     ];
   }

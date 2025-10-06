@@ -141,14 +141,14 @@
 // }
 import 'package:flutter/material.dart';
 
-class HistoryPage extends StatefulWidget {
-  const HistoryPage({super.key});
+class Historypage extends StatefulWidget {
+  const Historypage({super.key});
 
   @override
-  State<HistoryPage> createState() => _HistoryPageState();
+  State<Historypage> createState() => _HistoryPageState();
 }
 
-class _HistoryPageState extends State<HistoryPage> {
+class _HistoryPageState extends State<Historypage> {
   final List<Map<String, dynamic>> historyData = const [
     {'date': 'Jul 11, 2025', 'type': 'Farming'},
     {'date': 'Sept 2, 2025', 'type': 'Grocery'},

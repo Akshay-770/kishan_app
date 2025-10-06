@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
 
-class ProductDetailsScreen extends StatefulWidget {
+class product_details_screen extends StatefulWidget {
   final Product product;
 
-  const ProductDetailsScreen({super.key, required this.product});
+  const product_details_screen({super.key, required this.product});
 
   @override
-  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+  State<product_details_screen> createState() => _ProductDetailsScreenState();
 }
 
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+class _ProductDetailsScreenState extends State<product_details_screen> {
   int quantity = 1;
 
   void _increment() {
